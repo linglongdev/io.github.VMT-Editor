@@ -1,0 +1,57 @@
+From 3e8745c40a47eb7f0062a86d056c5a78a9516380 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sat, 10 Aug 2024 14:19:17 +0800
+Subject: [PATCH] install
+
+---
+ VMT Editor.desktop | 11 +++++++++++
+ VMT_Editor.pro     |  9 ++++++++-
+ 2 files changed, 19 insertions(+), 1 deletion(-)
+ create mode 100644 VMT Editor.desktop
+
+diff --git a/VMT Editor.desktop b/VMT Editor.desktop
+new file mode 100644
+index 0000000..267c059
+--- /dev/null
++++ b/VMT Editor.desktop	
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=VMT_Editor
++Name=VMT Editor
++Name[zh_CN]=VMT Editor
++Icon=icon_flat
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=VMT_Editor
++Version=1.3.12
+\ No newline at end of file
+diff --git a/VMT_Editor.pro b/VMT_Editor.pro
+index e47180b..9c0a99d 100644
+--- a/VMT_Editor.pro
++++ b/VMT_Editor.pro
+@@ -22,7 +22,7 @@ win32 {
+   }
+   QMAKE_POST_LINK = $${DEPLOY_COMMAND} $${DEPLOY_TARGET}
+ } else {
+-  TARGET = "VMT Editor"
++  TARGET = "VMT_Editor"
+ }
+ 
+ linux {
+@@ -149,3 +149,10 @@ FORMS += \
+ 
+ RESOURCES += resources.qrc
+ 
++target.path = $$PREFIX/bin
++desktop.files = VMT Editor.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons
++icons.files = images/icon_flat.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+
